@@ -1,16 +1,23 @@
 public class Main {
     public static void main(String[] args) {
-        int a = 2;   // inialize a base number
-        int n = 10;  // initialize a exponential number
-        System.out.println(toPower(a, n)); // print a result
-    }
-
-    public static int toPower(int a, int n) {
-        if (n == 1) {
-            return a;  // base condition if n = 1 return base num
+        String s = "123456";
+        int n = s.length() - 1;
+        if(ifStringOnlyDigits(s, n)) {
+            System.out.println("Yes");
         }
         else {
-            return a * toPower(a, n - 1);
-        }  // return the base number multiplied with the func called recursively arguments as the base and power minus 1
+            System.out.println("No");
+        }
+    }
+    public static boolean ifStringOnlyDigits(String s, int n) {
+        if(n == 1) {
+            return Character.isDigit(s.charAt(0));
+        }
+        if(Character.isDigit(s.charAt(n))) {
+            return ifStringOnlyDigits(s, n - 1);
+        }
+        else {
+            return false;
+        }
     }
 }
