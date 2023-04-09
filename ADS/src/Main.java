@@ -1,15 +1,14 @@
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {10, 1, 32, 3, 45}; // given array
-        System.out.println("Minimum in the array is:" + findMin(arr, arr.length)); // print solution on the screen
+        int[] arr = {3, 2, 4, 1}; // given array
+        System.out.println(arrAverage(arr, arr.length)); // print result
+
     }
-    public static int findMin(int[] arr, int n) {
-        if (n == 1) {       // base condition in order not to break a code
-            return arr[0];
+    public static float arrAverage(int[] arr, int n) {
+        float sum = 0;  // variable to count sum numbers in array
+        for(int i = 0; i < n; i++) {
+            sum += arr[i];  // iterating every element in array and incrementing it to the variable
         }
-        else {
-            int minValue = findMin(arr, n - 1);   // variable calls the func
-            return Math.min(minValue, arr[n - 1]);   // сomparing one element with 'n-1' el
-        }
+        return (sum / arr.length);  // returning the solution
     }
 }
