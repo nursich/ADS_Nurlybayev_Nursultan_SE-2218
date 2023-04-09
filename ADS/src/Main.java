@@ -1,19 +1,16 @@
 public class Main {
     public static void main(String[] args) {
-        int n = 5;   // initialize a number
-        int n2= 17;
-        System.out.println("The " + n + "-th element in Fibonacci sequence is: " + fibonacciEl(n));  // print a result
-        System.out.println("The " + n2 + "-th element in Fibonacci sequence is: " + fibonacciEl(n2));
+        int a = 2;   // inialize a base number
+        int n = 10;  // initialize a exponential number
+        System.out.println(toPower(a, n)); // print a result
     }
-    public static int fibonacciEl(int n) {
-        if (n == 0) {      // base condition n1
-            return 0;
+
+    public static int toPower(int a, int n) {
+        if (n == 1) {
+            return a;  // base condition if n = 1 return base num
         }
-        else if (n == 1) {      // base condition n2
-            return 1;
-        }
-        else {     // recursion in order to find n-th element in Fibo sequence
-            return fibonacciEl(n - 1) + fibonacciEl(n - 2);
-        }
+        else {
+            return a * toPower(a, n - 1);
+        }  // return the base number multiplied with the func called recursively arguments as the base and power minus 1
     }
 }
