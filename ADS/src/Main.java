@@ -1,15 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        int n = 7;
-        int k = 3;
-        System.out.println("The result of C(" + n + "," + k + ") is " + binomialCoeff(n, k));
+        int a = 32;
+        int b = 48;
+        System.out.println("The GCD of (" + a + "," + b + ") is " + getGCD(a, b));
     }
-    public static int binomialCoeff(int n, int k) {
-        if (k == 0 || k == n) {
-            return 1;
+    public static int getGCD(int a, int b) {
+        if (a == 0) {
+            return b;
+        }
+        if (b == 0) {
+            return a;
         }
         else {
-            return binomialCoeff(n - 1, k - 1) + binomialCoeff(n - 1, k);
+            return getGCD(b, (a % b));
         }
     }
 }
